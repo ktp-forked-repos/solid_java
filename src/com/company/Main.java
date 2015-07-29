@@ -4,19 +4,17 @@ import com.company.dip.before.DIPClient;
 import com.company.dip.before.TextLogger;
 import com.company.isp.ISPClient;
 import com.company.isp.ISPClientNew;
-import com.company.lsp_1.ApplicationSettings;
-import com.company.lsp_1.ConsumerSettings;
-import com.company.lsp_1.DbSettings;
-import com.company.lsp_1.IPersistable;
+import com.company.lsp_1.after.ApplicationSettings;
+import com.company.lsp_1.after.ConsumerSettings;
+import com.company.lsp_1.after.DbSettings;
+import com.company.lsp_1.after.IPersistable;
 import com.company.lsp_2.Ellipse;
 import com.company.lsp_2.MyCircle;
 import com.company.lsp_2.Point;
-import com.company.ocp.ClientFileParser;
-import com.company.ocp.ClientFileParserNew;
-import com.company.ocp.IParsable;
-import com.company.ocp.XMLFileIParsable;
-import com.company.srp.ContentNotifier;
-import com.company.srp.NewContentNotifier;
+import com.company.ocp.after.ClientFileParser;
+import com.company.ocp.after.IParsable;
+import com.company.ocp.XMLFileParser;
+import com.company.srp.after.ContentNotifier;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -27,65 +25,50 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Main main = new Main();
         main.srpDemo();
+
         main.ocpDemo();
+
         main.lsp1Demo();
 
         Ellipse ellipse = new Ellipse();
         main.lsp2Demo(ellipse);
-
         Ellipse circle = new MyCircle();
         // Violated LSP
         main.lsp2Demo(circle);
 
         main.ispDemo();
-
+        
         main.dipDemo();
     }
 
     private void srpDemo() {
         // SRP Old code
-        ContentNotifier notifier = new ContentNotifier("~/something.csv");
+        com.company.srp.before.ContentNotifier notifier = new com.company.srp.before.ContentNotifier("~/something.csv");
         notifier.sendNotification();
 
         //SRP Refactored new_code code
-        NewContentNotifier newNotifier = new NewContentNotifier("~/something.csv");
+        ContentNotifier newNotifier = new ContentNotifier("~/something.csv");
         newNotifier.sendNotification();
     }
 
     private void ocpDemo() {
         // OCP Old Code
-        ClientFileParser parser = new ClientFileParser(new File("~/something.csv"));
+        com.company.ocp.before.ClientFileParser parser = new com.company.ocp.before.ClientFileParser(new File("~/something.csv"));
         parser.parse();
 
 
         // OCP New Code
-        XMLFileIParsable xmlParser = new XMLFileIParsable();
-        ClientFileParserNew newParser = new ClientFileParserNew((IParsable) xmlParser, new File("~/something.csv"));
+        XMLFileParser xmlParser = new XMLFileParser();
+        ClientFileParser newParser = new ClientFileParser((IParsable) xmlParser, new File("~/something.csv"));
         newParser.parse();
     }
 
     private void lsp1Demo() {
-        ArrayList<IPersistable> allSettings = new ArrayList<IPersistable>(Arrays.asList(
-                new ApplicationSettings(),
-                new ConsumerSettings(),
-                new DbSettings()
-        ));
+        //before
+        new com.company.lsp_1.before.LSPClient().execute();
 
-        // Load all settings
-        allSettings.forEach((
-                IPersistable s
-        ) -> s.Load());
-
-        // Save all Settings
-
-        // Bad Bad Way
-        allSettings.forEach((
-                        IPersistable s
-                ) -> {
-                    if(s instanceof DbSettings)return;
-                    s.Save();
-                }
-        );
+        //After
+        new com.company.lsp_1.after.LSPClient().execute();
     }
 
     private void lsp2Demo(Ellipse e) throws Exception {
