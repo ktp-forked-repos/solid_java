@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.dip.before.DIPClient;
+import com.company.dip.before.TextLogger;
 import com.company.isp.ISPClient;
 import com.company.isp.ISPClientNew;
 import com.company.lsp_1.ApplicationSettings;
@@ -7,19 +9,18 @@ import com.company.lsp_1.ConsumerSettings;
 import com.company.lsp_1.DbSettings;
 import com.company.lsp_1.IPersistable;
 import com.company.lsp_2.Ellipse;
+import com.company.lsp_2.MyCircle;
 import com.company.lsp_2.Point;
+import com.company.ocp.ClientFileParser;
+import com.company.ocp.ClientFileParserNew;
 import com.company.ocp.IParsable;
 import com.company.ocp.XMLFileIParsable;
-import com.company.ocp.ClientFileParserNew;
-import com.company.ocp.ClientFileParser;
 import com.company.srp.ContentNotifier;
 import com.company.srp.NewContentNotifier;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import com.company.lsp_2.MyCircle;
 
 public class Main {
 
@@ -37,6 +38,8 @@ public class Main {
         main.lsp2Demo(circle);
 
         main.ispDemo();
+
+        main.dipDemo();
     }
 
     private void srpDemo() {
@@ -106,7 +109,15 @@ public class Main {
 
         // Nes Code
         new ISPClientNew().Load();
-
     }
 
+    private void dipDemo() {
+        //Before
+        new DIPClient().execute(new TextLogger());
+
+        // After
+        new com.company.dip.after.DIPClient().execute(new com.company.dip.after.TextLogger());
+        new com.company.dip.after.DIPClient().execute(new com.company.dip.after.JSONLogger());
+        new com.company.dip.after.DIPClient().execute(new com.company.dip.after.XMLLogger());
+    }
 }
