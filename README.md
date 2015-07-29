@@ -1,2 +1,2 @@
 ## SOLID code samples in Java
-## SRP, OCP, LSP, ISP, DIP
+## SRP, OCP, LSP, ISP, DIP :

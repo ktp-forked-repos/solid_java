@@ -1,4 +1,4 @@
-package com.company;
+package com.company.srp;
 
 
 public class NewContentNotifier {
