@@ -1,4 +1,4 @@
-package com.company.isp;
+package com.company.isp.after;
 
 
 public interface ILoadable {

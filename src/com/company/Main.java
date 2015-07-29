@@ -2,12 +2,7 @@ package com.company;
 
 import com.company.dip.before.DIPClient;
 import com.company.dip.before.TextLogger;
-import com.company.isp.ISPClient;
-import com.company.isp.ISPClientNew;
-import com.company.lsp_1.after.ApplicationSettings;
-import com.company.lsp_1.after.ConsumerSettings;
-import com.company.lsp_1.after.DbSettings;
-import com.company.lsp_1.after.IPersistable;
+import com.company.isp.after.ISPClient;
 import com.company.lsp_2.Ellipse;
 import com.company.lsp_2.MyCircle;
 import com.company.lsp_2.Point;
@@ -17,8 +12,6 @@ import com.company.ocp.XMLFileParser;
 import com.company.srp.after.ContentNotifier;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
 
@@ -37,7 +30,7 @@ public class Main {
         main.lsp2Demo(circle);
 
         main.ispDemo();
-        
+
         main.dipDemo();
     }
 
@@ -88,10 +81,10 @@ public class Main {
 
     private void ispDemo() {
         //Old Code
-        new ISPClient().Load();
+        new com.company.isp.before.ISPClient().Load();
 
         // Nes Code
-        new ISPClientNew().Load();
+        new ISPClient().Load();
     }
 
     private void dipDemo() {

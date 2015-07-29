@@ -1,4 +1,4 @@
-package com.company.isp;
+package com.company.isp.before;
 
 public interface IPersistable {
     // Saves to a file

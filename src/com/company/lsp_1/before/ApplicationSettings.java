@@ -1,7 +1,7 @@
 package com.company.lsp_1.before;
 
 
-import com.company.isp.ILoadable;
+import com.company.isp.after.ILoadable;
 
 public class ApplicationSettings implements IPersistable, ILoadable{
 
