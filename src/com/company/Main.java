@@ -2,8 +2,8 @@ package com.company;
 
 import com.company.ocp.Parser;
 import com.company.ocp.XMLFileParser;
-import com.company.ocp.new_code.ClientFileParserNew;
-import com.company.ocp.old_code.ClientFileParser;
+import com.company.ocp.ClientFileParserNew;
+import com.company.ocp.ClientFileParser;
 import com.company.srp.ContentNotifier;
 import com.company.srp.NewContentNotifier;
 

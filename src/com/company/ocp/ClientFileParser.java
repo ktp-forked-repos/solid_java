@@ -1,4 +1,4 @@
-package com.company.ocp.old_code;
+package com.company.ocp;
 
 import com.company.ocp.CSVFileParser;
 import com.company.ocp.JSONFileParser;

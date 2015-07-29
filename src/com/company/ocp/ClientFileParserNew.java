@@ -1,6 +1,4 @@
-package com.company.ocp.new_code;
-
-import com.company.ocp.Parser;
+package com.company.ocp;
 
 import java.io.File;
 
