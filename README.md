@@ -1,5 +1,5 @@
 ## SOLID code samples in Java
-#### Code companion for the "Writing S.O.L.I.D code" talk.
+#### Code companion for "Writing S.O.L.I.D code" talk.
 
 - <b> S <b>- Single Responsibility Principle
 - <b> O <b>- Open/Closed Principle
