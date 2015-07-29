@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.isp.ISPClient;
+import com.company.isp.ISPClientNew;
 import com.company.lsp_1.ApplicationSettings;
 import com.company.lsp_1.ConsumerSettings;
 import com.company.lsp_1.DbSettings;
@@ -33,6 +35,8 @@ public class Main {
         Ellipse circle = new MyCircle();
         // Violated LSP
         main.lsp2Demo(circle);
+
+        main.ispDemo();
     }
 
     private void srpDemo() {
@@ -75,7 +79,7 @@ public class Main {
         allSettings.forEach((
                         IPersistable s
                 ) -> {
-                    //if(s instanceof DbSettings)return;
+                    if(s instanceof DbSettings)return;
                     s.Save();
                 }
         );
@@ -94,6 +98,15 @@ public class Main {
         // Post Conditions
         // Expect a (1,0) b (-1, 0)
         // Expect MajorAxis == 3
+    }
+
+    private void ispDemo() {
+        //Old Code
+        new ISPClient().Load();
+
+        // Nes Code
+        new ISPClientNew().Load();
+
     }
 
 }
