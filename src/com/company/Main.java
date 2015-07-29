@@ -16,11 +16,12 @@ import com.company.srp.NewContentNotifier;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import com.company.lsp_2.MyCircle;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Main main = new Main();
         main.srpDemo();
         main.ocpDemo();
@@ -72,19 +73,23 @@ public class Main {
 
         // Bad Bad Way
         allSettings.forEach((
-                IPersistable s
-        ) -> {
-            //if(s instanceof DbSettings)return;
+                        IPersistable s
+                ) -> {
+                    //if(s instanceof DbSettings)return;
                     s.Save();
-        }
+                }
         );
     }
 
-    private void lsp2Demo(Ellipse e) {
-        Point a = new Point(1,0);
-        Point b = new Point(-1,0);
+    private void lsp2Demo(Ellipse e) throws Exception {
+        Point a = new Point(1, 0);
+        Point b = new Point(-1, 0);
+        //if (e instanceof Ellipse) {
         e.setFoci(a, b);
         e.setMajorAxis(3);
+        //} else {
+        //    throw new Exception("Not a ellipse");
+        //}
 
         // Post Conditions
         // Expect a (1,0) b (-1, 0)
