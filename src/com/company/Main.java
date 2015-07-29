@@ -4,6 +4,8 @@ import com.company.lsp_1.ApplicationSettings;
 import com.company.lsp_1.ConsumerSettings;
 import com.company.lsp_1.DbSettings;
 import com.company.lsp_1.IPersistable;
+import com.company.lsp_2.Ellipse;
+import com.company.lsp_2.Point;
 import com.company.ocp.Parser;
 import com.company.ocp.XMLFileParser;
 import com.company.ocp.ClientFileParserNew;
@@ -14,6 +16,7 @@ import com.company.srp.NewContentNotifier;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import com.company.lsp_2.MyCircle;
 
 public class Main {
 
@@ -21,7 +24,14 @@ public class Main {
         Main main = new Main();
         main.srpDemo();
         main.ocpDemo();
-        main.lspDemo();
+        main.lsp1Demo();
+
+        Ellipse ellipse = new Ellipse();
+        main.lsp2Demo(ellipse);
+
+        Ellipse circle = new MyCircle();
+        // Violated LSP
+        main.lsp2Demo(circle);
     }
 
     private void srpDemo() {
@@ -46,7 +56,7 @@ public class Main {
         newParser.parse();
     }
 
-    private void lspDemo() {
+    private void lsp1Demo() {
         ArrayList<IPersistable> allSettings = new ArrayList<IPersistable>(Arrays.asList(
                 new ApplicationSettings(),
                 new ConsumerSettings(),
@@ -68,6 +78,17 @@ public class Main {
                     s.Save();
         }
         );
+    }
+
+    private void lsp2Demo(Ellipse e) {
+        Point a = new Point(1,0);
+        Point b = new Point(-1,0);
+        e.setFoci(a, b);
+        e.setMajorAxis(3);
+
+        // Post Conditions
+        // Expect a (1,0) b (-1, 0)
+        // Expect MajorAxis == 3
     }
 
 }
