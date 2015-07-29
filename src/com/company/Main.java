@@ -8,8 +8,8 @@ import com.company.lsp_1.DbSettings;
 import com.company.lsp_1.IPersistable;
 import com.company.lsp_2.Ellipse;
 import com.company.lsp_2.Point;
-import com.company.ocp.Parser;
-import com.company.ocp.XMLFileParser;
+import com.company.ocp.IParsable;
+import com.company.ocp.XMLFileIParsable;
 import com.company.ocp.ClientFileParserNew;
 import com.company.ocp.ClientFileParser;
 import com.company.srp.ContentNotifier;
@@ -56,8 +56,8 @@ public class Main {
 
 
         // OCP New Code
-        XMLFileParser xmlParser = new XMLFileParser();
-        ClientFileParserNew newParser = new ClientFileParserNew((Parser) xmlParser, new File("~/something.csv"));
+        XMLFileIParsable xmlParser = new XMLFileIParsable();
+        ClientFileParserNew newParser = new ClientFileParserNew((IParsable) xmlParser, new File("~/something.csv"));
         newParser.parse();
     }
 

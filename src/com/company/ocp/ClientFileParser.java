@@ -1,9 +1,5 @@
 package com.company.ocp;
 
-import com.company.ocp.CSVFileParser;
-import com.company.ocp.JSONFileParser;
-import com.company.ocp.XMLFileParser;
-
 import java.io.File;
 
 public class ClientFileParser {
@@ -18,13 +14,13 @@ public class ClientFileParser {
         String ext = getFileExtension(file);
         System.out.println("Extension" + ext);
         if (ext.equals(".csv")) {
-            CSVFileParser csv_parser = new CSVFileParser();
+            CSVFileIParsable csv_parser = new CSVFileIParsable();
             csv_parser.parse(file);
         } else if (ext.equals(".json")) {
-            JSONFileParser json_parser = new JSONFileParser();
+            JSONFileIParsable json_parser = new JSONFileIParsable();
             json_parser.parse(file);
         } else {
-            XMLFileParser xml_parser = new XMLFileParser();
+            XMLFileIParsable xml_parser = new XMLFileIParsable();
             xml_parser.parse(file);
         }
     }

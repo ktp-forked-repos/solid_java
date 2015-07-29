@@ -5,16 +5,16 @@ import java.io.File;
 
 public class ClientFileParserNew {
 
-    private Parser parser;
+    private IParsable IParsable;
     private File file;
 
-    public ClientFileParserNew(Parser parser, File file) {
-        this.parser = parser;
+    public ClientFileParserNew(IParsable IParsable, File file) {
+        this.IParsable = IParsable;
         this.file = file;
     }
 
     public void parse() {
-        parser.parse(file);
+        IParsable.parse(file);
     }
 }
 
