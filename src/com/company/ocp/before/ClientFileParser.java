@@ -16,16 +16,15 @@ public class ClientFileParser {
 
     public void parse() {
         String ext = getFileExtension(file);
-        System.out.println("Extension" + ext);
         if (ext.equals(".csv")) {
-            CSVFileParser csv_parser = new CSVFileParser();
-            csv_parser.parse(file);
+            CSVFileParser csvFileParser = new CSVFileParser();
+            csvFileParser.parse(file);
         } else if (ext.equals(".json")) {
-            JSONFileParser json_parser = new JSONFileParser();
-            json_parser.parse(file);
+            JSONFileParser jsonParser = new JSONFileParser();
+            jsonParser.parse(file);
         } else {
-            XMLFileParser xml_parser = new XMLFileParser();
-            xml_parser.parse(file);
+            XMLFileParser xmlParser = new XMLFileParser();
+            xmlParser.parse(file);
         }
     }
 

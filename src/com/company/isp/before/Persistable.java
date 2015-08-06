@@ -1,6 +1,6 @@
 package com.company.isp.before;
 
-public interface IPersistable {
+public interface Persistable {
     // Saves to a file
     void saveToFile();
 

@@ -1,7 +1,7 @@
 package com.company.lsp_1.after;
 
 
-public class ApplicationSettings implements com.company.lsp_1.after.IPersistable, com.company.lsp_1.after.ILoadable{
+public class ApplicationSettings implements Persistable, Loadable {
 
     @Override
     public void Load() {

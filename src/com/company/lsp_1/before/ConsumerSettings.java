@@ -1,7 +1,7 @@
 package com.company.lsp_1.before;
 
 
-public class ConsumerSettings implements com.company.lsp_1.before.IPersistable{
+public class ConsumerSettings implements Persistable {
 
     @Override
     public void Load() {

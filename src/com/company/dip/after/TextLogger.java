@@ -1,7 +1,7 @@
 package com.company.dip.after;
 
 
-public class TextLogger implements ILogger {
+public class TextLogger implements Logger {
 
     @Override
     public void log() {

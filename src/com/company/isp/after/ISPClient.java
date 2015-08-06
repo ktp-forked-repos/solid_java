@@ -1,6 +1,6 @@
 package com.company.isp.after;
 
-public class ISPClient implements ILoadable {
+public class ISPClient implements Loadable {
 
     @Override
     public void Load() {

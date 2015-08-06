@@ -1,7 +1,7 @@
 package com.company.dip.after;
 
 
-public class XMLLogger implements ILogger {
+public class XMLLogger implements Logger {
 
     @Override
     public void log() {

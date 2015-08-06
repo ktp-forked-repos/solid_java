@@ -1,6 +1,6 @@
 package com.company.lsp_1.before;
 
-public class DbSettings implements com.company.lsp_1.before.IPersistable{
+public class DbSettings implements Persistable {
 
     @Override
     public void Load() {

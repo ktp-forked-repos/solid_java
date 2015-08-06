@@ -7,7 +7,7 @@ import com.company.lsp_2.Ellipse;
 import com.company.lsp_2.MyCircle;
 import com.company.lsp_2.Point;
 import com.company.ocp.after.ClientFileParser;
-import com.company.ocp.after.IParsable;
+import com.company.ocp.after.Parsable;
 import com.company.ocp.XMLFileParser;
 import com.company.srp.after.ContentNotifier;
 
@@ -52,7 +52,7 @@ public class Main {
 
         // OCP New Code
         XMLFileParser xmlParser = new XMLFileParser();
-        ClientFileParser newParser = new ClientFileParser((IParsable) xmlParser, new File("~/something.csv"));
+        ClientFileParser newParser = new ClientFileParser((Parsable) xmlParser, new File("~/something.csv"));
         newParser.parse();
     }
 

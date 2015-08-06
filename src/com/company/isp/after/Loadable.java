@@ -1,7 +1,7 @@
 package com.company.isp.after;
 
 
-public interface ILoadable {
+public interface Loadable {
     // Load Settings into Memory
     void Load();
 

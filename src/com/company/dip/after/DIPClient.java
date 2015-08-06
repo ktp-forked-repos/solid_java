@@ -1,10 +1,8 @@
 package com.company.dip.after;
 
-import com.company.dip.before.TextLogger;
-
 public class DIPClient {
 
-    public void execute(ILogger logger) {
+    public void execute(Logger logger) {
         logger.log();
     }
 }

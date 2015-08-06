@@ -9,21 +9,9 @@ public class ContentNotifier {
     }
 
     public void sendNotification() {
-       // Parsing Contents from a file
-       String contents = parseContentFromFile();
-       // Notifying user of the parsing
-       notifyUserWith(contents);
+        String parsedContent = "Parsing file contents from " + filepath;
+        System.out.println("Sending a mail notification with contents " + parsedContent);
     }
 
 
-    private String parseContentFromFile(){
-        // Logic for parsing file contents goes here
-        System.out.println("Parsing file contents from " + filepath);
-        return "Parsed Content";
-    }
-
-    private void notifyUserWith(String contents) {
-        // Logic for mail sending goes here
-        System.out.println("Sending a mail notification with contents " + contents);
-    }
 }

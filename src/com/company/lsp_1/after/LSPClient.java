@@ -6,23 +6,23 @@ import java.util.Arrays;
 public class LSPClient {
 
     public void execute() {
-        ArrayList<com.company.lsp_1.after.IPersistable> saveSettings = new ArrayList<IPersistable>(Arrays.asList(
-                new com.company.lsp_1.after.ApplicationSettings(),
-                new com.company.lsp_1.after.ConsumerSettings()
+        ArrayList<Persistable> saveSettings = new ArrayList<Persistable>(Arrays.asList(
+                new ApplicationSettings(),
+                new ConsumerSettings()
         ));
 
         // Load all settings
         saveSettings.forEach((
-                com.company.lsp_1.after.IPersistable s
+                Persistable s
         ) -> s.Save());
 
-        ArrayList<com.company.lsp_1.after.ILoadable> readableSettings = new ArrayList<com.company.lsp_1.after.ILoadable>(Arrays.asList(
-                new com.company.lsp_1.after.DbSettings()
+        ArrayList<Loadable> readableSettings = new ArrayList<Loadable>(Arrays.asList(
+                new DbSettings()
         ));
 
         // Load all settings
         readableSettings.forEach((
-                com.company.lsp_1.after.ILoadable s
+                Loadable s
         ) -> s.Load());
     }
 }

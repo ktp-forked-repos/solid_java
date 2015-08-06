@@ -1,9 +1,9 @@
 package com.company.lsp_1.before;
 
 
-import com.company.isp.after.ILoadable;
+import com.company.isp.after.Loadable;
 
-public class ApplicationSettings implements IPersistable, ILoadable{
+public class ApplicationSettings implements Persistable, Loadable {
 
     @Override
     public void Load() {

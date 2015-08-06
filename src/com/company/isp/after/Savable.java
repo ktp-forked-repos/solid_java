@@ -1,6 +1,6 @@
 package com.company.isp.after;
 
-public interface ISavable {
+public interface Savable {
     // Loads into Memory
     void Load();
 

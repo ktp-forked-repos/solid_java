@@ -1,6 +1,6 @@
 package com.company.lsp_1.after;
 
-public interface IPersistable {
+public interface Persistable {
     // Save it to a file/db
     void Save();
 }

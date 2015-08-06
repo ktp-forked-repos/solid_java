@@ -1,9 +1,9 @@
 package com.company.isp.before;
 
-import com.company.isp.after.ISavable;
+import com.company.isp.after.Savable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class ISPClient implements ISavable {
+public class ISPClient implements Savable {
 
     @Override
     public void Load() {

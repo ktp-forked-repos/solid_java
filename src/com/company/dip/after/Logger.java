@@ -1,5 +1,5 @@
 package com.company.dip.after;
 
-public interface ILogger {
+public interface Logger {
     void log();
 }

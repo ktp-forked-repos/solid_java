@@ -1,6 +1,6 @@
 package com.company.lsp_1.before;
 
-public interface IPersistable {
+public interface Persistable {
     //Load file into memory
     void Load();
     // Save it to a file/db

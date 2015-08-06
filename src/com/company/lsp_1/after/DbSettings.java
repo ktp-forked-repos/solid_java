@@ -1,6 +1,6 @@
 package com.company.lsp_1.after;
 
-public class DbSettings implements com.company.lsp_1.after.ILoadable{
+public class DbSettings implements Loadable {
 
     @Override
     public void Load() {

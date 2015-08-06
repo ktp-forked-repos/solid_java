@@ -1,6 +1,6 @@
 package com.company.lsp_1.after;
 
-public class ConsumerSettings implements com.company.lsp_1.after.IPersistable, com.company.lsp_1.after.ILoadable{
+public class ConsumerSettings implements Persistable, Loadable {
 
     @Override
     public void Load() {
