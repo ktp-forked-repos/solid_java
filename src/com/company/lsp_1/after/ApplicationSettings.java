@@ -4,12 +4,12 @@ package com.company.lsp_1.after;
 public class ApplicationSettings implements Persistable, Loadable {
 
     @Override
-    public void Load() {
+    public void load() {
         System.out.println("Load Application Settings into memory");
     }
 
     @Override
-    public void Save() {
+    public void save() {
         System.out.println("Saving Application Settings into a file");
     }
 }

@@ -3,20 +3,27 @@ package com.company;
 import com.company.dip.before.DIPClient;
 import com.company.dip.before.TextLogger;
 import com.company.isp.after.ISPClient;
+import com.company.lsp_1.after.Loadable;
+import com.company.lsp_1.before.ApplicationSettings;
+import com.company.lsp_1.before.ConsumerSettings;
+import com.company.lsp_1.before.DbSettings;
+import com.company.lsp_1.before.Persistable;
 import com.company.lsp_2.Ellipse;
 import com.company.lsp_2.MyCircle;
 import com.company.lsp_2.Point;
 import com.company.ocp.after.ClientFileParser;
 import com.company.ocp.after.Parsable;
 import com.company.ocp.XMLFileParser;
-import com.company.srp.after.ContentNotifier;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
         Main main = new Main();
+
         main.srpDemo();
 
         main.ocpDemo();
@@ -34,14 +41,8 @@ public class Main {
         main.dipDemo();
     }
 
-    private void srpDemo() {
-        // SRP Old code
-        com.company.srp.before.ContentNotifier notifier = new com.company.srp.before.ContentNotifier("~/something.csv");
-        notifier.sendNotification();
+    private void srpDemo(){
 
-        //SRP Refactored new_code code
-        ContentNotifier newNotifier = new ContentNotifier("~/something.csv");
-        newNotifier.sendNotification();
     }
 
     private void ocpDemo() {
@@ -58,10 +59,27 @@ public class Main {
 
     private void lsp1Demo() {
         //before
-        new com.company.lsp_1.before.LSPClient().execute();
+        ArrayList<Persistable> resources = new ArrayList<Persistable>(Arrays.asList(
+                new ApplicationSettings(),
+                new ConsumerSettings(),
+                new DbSettings()
+        ));
+
+        new com.company.lsp_1.before.LSPClient().execute(resources);
 
         //After
-        new com.company.lsp_1.after.LSPClient().execute();
+        ArrayList<com.company.lsp_1.after.Persistable> saveResources = new ArrayList<com.company.lsp_1.after.Persistable>(Arrays.asList(
+                new com.company.lsp_1.after.ApplicationSettings(),
+                new com.company.lsp_1.after.ConsumerSettings()
+        ));
+        new com.company.lsp_1.after.LSPClient().saveAll(saveResources);
+
+        ArrayList<com.company.lsp_1.after.Loadable> loadResources = new ArrayList<Loadable>(Arrays.asList(
+                new com.company.lsp_1.after.ApplicationSettings(),
+                new com.company.lsp_1.after.ConsumerSettings(),
+                new com.company.lsp_1.after.DbSettings()
+        ));
+        new com.company.lsp_1.after.LSPClient().loadAll(loadResources);
     }
 
     private void lsp2Demo(Ellipse e) throws Exception {
@@ -81,10 +99,10 @@ public class Main {
 
     private void ispDemo() {
         //Old Code
-        new com.company.isp.before.ISPClient().Load();
+        new com.company.isp.before.ISPClient().load();
 
         // Nes Code
-        new ISPClient().Load();
+        new ISPClient().load();
     }
 
     private void dipDemo() {

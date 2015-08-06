@@ -1,14 +1,16 @@
 package com.company.lsp_1.before;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public class DbSettings implements Persistable {
 
     @Override
-    public void Load() {
+    public void load() {
       System.out.println("Load DBSettings into the memory");
     }
 
     @Override
-    public void Save() {
-        System.out.println("Saving to a file");
+    public void save() {
+        throw new NotImplementedException();
     }
 }

@@ -1,8 +1,10 @@
 package com.company.lsp_1.before;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public interface Persistable {
     //Load file into memory
-    void Load();
+    void load();
     // Save it to a file/db
-    void Save();
+    void save() throws NotImplementedException;
 }

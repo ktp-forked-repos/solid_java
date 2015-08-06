@@ -1,17 +1,16 @@
 package com.company.lsp_1.before;
 
 
-import com.company.isp.after.Loadable;
-
-public class ApplicationSettings implements Persistable, Loadable {
+public class ApplicationSettings implements Persistable {
 
     @Override
-    public void Load() {
+    public void load() {
         System.out.println("Load Application Settings into memory");
     }
 
     @Override
-    public void Save() {
-        System.out.println("Saving Application Settings into a file");
+    public void save() {
+        System.out.println("Save onto a file");
     }
+
 }

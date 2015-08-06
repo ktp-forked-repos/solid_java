@@ -1,28 +1,20 @@
 package com.company.lsp_1.after;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class LSPClient {
 
-    public void execute() {
-        ArrayList<Persistable> saveSettings = new ArrayList<Persistable>(Arrays.asList(
-                new ApplicationSettings(),
-                new ConsumerSettings()
-        ));
-
-        // Load all settings
-        saveSettings.forEach((
+    public void saveAll(ArrayList<Persistable> resources) {
+        // Save all settings
+        resources.forEach((
                 Persistable s
-        ) -> s.Save());
+        ) -> s.save());
+    }
 
-        ArrayList<Loadable> readableSettings = new ArrayList<Loadable>(Arrays.asList(
-                new DbSettings()
-        ));
-
+    public void loadAll(ArrayList<Loadable> resources) {
         // Load all settings
-        readableSettings.forEach((
+        resources.forEach((
                 Loadable s
-        ) -> s.Load());
+        ) -> s.load());
     }
 }

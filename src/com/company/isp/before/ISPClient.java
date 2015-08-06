@@ -1,12 +1,10 @@
 package com.company.isp.before;
 
-import com.company.isp.after.Savable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class ISPClient implements Savable {
+public class ISPClient implements Persistable {
 
-    @Override
-    public void Load() {
+    public void load() {
         System.out.println("I load stuff into memory");
     }
 

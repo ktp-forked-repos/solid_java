@@ -8,10 +8,12 @@ public class ContentNotifier {
         this.filepath = filepath;
     }
 
-    public void sendNotification() {
-        String parsedContent = "Parsing file contents from " + filepath;
-        System.out.println("Sending a mail notification with contents " + parsedContent);
+    public String parseContents() {
+        System.out.println("Parsing file contents from " + filepath);
+        return "Some parsed content";
     }
 
-
+    public void notifyUser(String parsedContent){
+        System.out.println("Sending a mail notification with contents " + parsedContent);
+    }
 }
