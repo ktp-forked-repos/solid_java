@@ -14,6 +14,8 @@ import com.company.lsp_2.Point;
 import com.company.ocp.after.ClientFileParser;
 import com.company.ocp.after.Parsable;
 import com.company.ocp.XMLFileParser;
+import com.company.srp.before.NotifierClient;
+import com.company.srp.before.ParseClient;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,7 +44,11 @@ public class Main {
     }
 
     private void srpDemo(){
+        ParseClient parseClient = new ParseClient();
+        parseClient.run();
 
+        NotifierClient notifierClient = new NotifierClient();
+        notifierClient.run();
     }
 
     private void ocpDemo() {
