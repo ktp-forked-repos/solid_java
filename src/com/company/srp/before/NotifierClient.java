@@ -1,7 +1,5 @@
 package com.company.srp.before;
 
-import java.io.File;
-
 public class NotifierClient {
 
     public void run() {
